@@ -8,10 +8,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Все Контакты</a>
+          <router-link class="nav-link" to="/">Все Контакты</router-link>
         </li>
       </ul>
-      <a href="#" class="btn btn-outline-success">Новый Контакт</a>
+      <router-link class="btn btn-outline-success" to="/newContact">Новый Контакт</router-link>
     </div>
   </nav>
 </template>
