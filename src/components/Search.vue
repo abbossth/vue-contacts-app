@@ -5,13 +5,27 @@
         <i class="fas fa-search"></i>
       </span>
     </div>
-    <input type="text" class="form-control" placeholder="Поиск по именам">
+    <input type="text" @input="search(searched)" class="form-control" v-model="searched" placeholder="Поиск по именам">
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
 export default {
-  name: 'SearchContact'
+  name: 'SearchContact',
+  data() {
+    return {
+      searched: ''
+    }
+  },
+  computed: mapGetters(['allContacts']),
+  methods: {
+    search(item) {
+      for (let contact of this.allContacts) { 
+        console.log(contact.name.toLowerCase());
+      }
+    }
+  }
 }
 </script>
 

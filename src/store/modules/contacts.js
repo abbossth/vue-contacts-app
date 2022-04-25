@@ -40,7 +40,10 @@ const actions = {
 }
 
 const mutations = {
-  setContacts: (state, contacts) => (state.contacts = contacts),
+  setContacts: (state, contacts) => (state.contacts = contacts.sort(function(a, b){
+      return (a.name - b.name)
+    }
+  )),
   singleContact: (state, contact) => contact,
   newContact: (state, contact) => (state.contacts, contact),
   removeContact: (state, id) => state.contacts = state.contacts.filter(todo => todo.id !== id)
