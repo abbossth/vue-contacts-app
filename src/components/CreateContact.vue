@@ -30,7 +30,7 @@ export default {
     },
     creating() {
       this.isCreated = !this.isCreated
-      setTimeout(() => this.isCreated = !this.isCreated, 5000)
+      setTimeout(() => this.isCreated = !this.isCreated, 3000)
     }
   }
 }
