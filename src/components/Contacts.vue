@@ -10,11 +10,17 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: "ContactsList",
-  computed: mapGetters(['allContacts'])
+  methods: {
+    ...mapActions(['fetchContacts'])
+  },
+  computed: mapGetters(['allContacts']),
+  created() {
+    this.fetchContacts()
+  }
 }
 </script>
 
