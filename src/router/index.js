@@ -18,6 +18,11 @@ const routes = [
     path: `/updateContact/:id`,
     name: 'UpdateContact',
     component: UpdateContact
+  },
+  {
+    path: '/:id',
+    name: 'DeleteContact',
+    component: AllContacts
   }
 ]
 

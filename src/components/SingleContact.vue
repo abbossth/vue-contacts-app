@@ -1,7 +1,5 @@
 <template>
-  <p> <b>Name: </b> {{ contact.name}}</p>
-  <p><b>Id: </b> {{ contact.id }}</p>
-  <div>
+  <div class="mb-2">
     <b>Phone: </b>
     <div v-for="phone in contact.phone" :key="phone">
       {{ phone }}
@@ -13,10 +11,19 @@
       {{ email }}
     </div>
   </div>
-  <router-link :to="'/updateContact/' + contact.id">
-    <span class="fas fa-pen"></span>
-  </router-link>
-  <span class="fas fa-trash mx-3" @click="deleteContact(contact.id)"></span>
+  <div class="text-right">
+    <!-- Update -->
+    <router-link 
+    :to="'/updateContact/' + contact.id">
+      <span class="fas fa-pen text-muted"></span>
+    </router-link>
+    <!-- Delete -->
+    <router-link 
+    :to="'/'+contact.id"
+    class="fas fa-trash mx-3 text-muted" 
+    @click="deleteContact(contact.id)">
+    </router-link>
+  </div>
 </template>
 
 <script>
