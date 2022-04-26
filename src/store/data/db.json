@@ -1,14 +1,20 @@
 [
   {
     "id": 511733,
-    "name": "John"
+    "name": "John",
+    "phone": ["+998912345678"],
+    "email": ["john@mail.com"]
   },
   {
     "id": 539261,
-    "name": "Yasmin"
+    "name": "Yasmin",
+    "phone": ["+998912345678","+998912340000"],
+    "email": ["yasmin@gmail.ru"]
   },
   {
     "id": 154681,
-    "name": "Abbos"
+    "name": "Abbos",
+    "phone": ["+998912345678"],
+    "email": ["abbos@mail.uz", "bossko@gmail.com"]
   }
 ]
