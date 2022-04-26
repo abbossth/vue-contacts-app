@@ -6,23 +6,20 @@ const state = {
 }
 
 const getters = {
-  allContacts: (state) => state.contacts,
+  allContacts: (state) => state.contacts.sort(function( a, b ) {
+    if ( a.name.toLowerCase() < b.name.toLowerCase() ){
+      return -1
+    }
+    if ( a.name.toLowerCase() > b.name.toLowerCase() ){
+      return 1
+    }
+    return 0
+  }),
 }
 
 const actions = {
   fetchContacts({ commit }) {
     commit('setContacts', db)
-  },
-  fetchSingleContact({commit}, id) {
-    let singleContact = 'none'
-    // console.log("Id: ", id)
-    for (let contact of state.contacts) {
-      if (contact.id === id) {
-        singleContact = contact
-      }
-    }
-    // console.log("sc:",singleContact)
-    commit('singleContact', singleContact)
   },
   createNew({ commit }, name) {
     const contact = {
@@ -33,19 +30,24 @@ const actions = {
     commit('newContact', db)
     router.push('/')
   },
+  updateContact({ commit }, upd) {
+    for (let c in state.contacts) {
+      if (state.contacts[c].id == upd.id) {
+        state.contacts[c] = upd
+      }
+    }
+    commit('updContact', db)
+    router.push('/')
+  },
   deleteContact({commit}, id) {
     commit('removeContact', id)
-    // console.log(id);
   }
 }
 
 const mutations = {
-  setContacts: (state, contacts) => (state.contacts = contacts.sort(function(a, b){
-      return (a.name - b.name)
-    }
-  )),
-  singleContact: (state, contact) => contact,
+  setContacts: (state, contacts) => (state.contacts = contacts),
   newContact: (state, contact) => (state.contacts, contact),
+  updContact: (state, contact) => (state.contacts, contact),
   removeContact: (state, id) => state.contacts = state.contacts.filter(todo => todo.id !== id)
 }
 

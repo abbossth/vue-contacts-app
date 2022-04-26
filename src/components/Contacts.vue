@@ -19,7 +19,7 @@
       <div :id="contact.id" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordion">
         <div class="card-body">
           <SingleContact :contact="contact" />
-        </div>
+        </div>  
       </div>
     </div>
   </div>
@@ -57,8 +57,7 @@ export default {
     }
   },
   created() {
-    this.fetchContacts(),
-    this.fetchSingleContact()
+    this.fetchContacts()
   },
   components: {
     SingleContact

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router"
 import AllContacts from '../views/AllContacts'
 import NewContact from '../views/NewContact'
+import UpdateContact from '../views/updateContact'
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     path: '/newContact',
     name: 'NewContact',
     component: NewContact
+  },
+  {
+    path: `/updateContact/:id`,
+    name: 'UpdateContact',
+    component: UpdateContact
   }
 ]
 
