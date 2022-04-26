@@ -7,7 +7,7 @@
     </div>
     <input type="text" class="form-control" v-model="searched" placeholder="Поиск по именам">
   </div> 
-  <div id="accordion" v-if="isAvailable(allContacts)">
+  <div id="accordion" v-if="isAvailable(filteredContacts)">
     <div class="card" v-for="contact in filteredContacts" :key="contact.id">
       <div class="card-header d-flex justify-content-between" id="headingOne" data-toggle="collapse" :data-target="'#'+contact.id" aria-expanded="true" aria-controls="collapseOne">
         <p class="mb-0 p-1">
@@ -24,7 +24,7 @@
     </div>
   </div>
   <div class="alert alert-warning " v-else>
-    Нет доступных контактов...
+    Нет контактов...
     <router-link to="/newContact" class="text-success">
       <span class="mx-1">Нажмите, чтобы создать новый</span>
       <i class="fas fa-plus"></i>
