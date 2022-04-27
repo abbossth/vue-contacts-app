@@ -53,7 +53,7 @@
           v-model="input.address" 
           type="text" class="form-control mt-2"
           id="addressInput" 
-          placeholder="e.g 35V 45-House Olmazor Tashkent">
+          placeholder="Ташкент, Узбекистан">
         <a v-if="index!=0"
           class="fas fa-minus text-danger mx-1"
           @click="deleteField(index, newContact.addresses)">
