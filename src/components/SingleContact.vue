@@ -1,14 +1,20 @@
 <template>
-  <div class="mb-2">
+  <div class="mt-2">
     <b>Phone: </b>
-    <div v-for="phone in contact.phone" :key="phone">
-      {{ phone }}
+    <div v-for="phone in contact.phones" :key="phone">
+      {{ phone.phone }}
     </div>
   </div>
-  <div>
+  <div class="mt-2">
     <b>Email: </b>
-    <div v-for="email in contact.email" :key="email">
-      {{ email }}
+    <div v-for="email in contact.emails" :key="email">
+      {{ email.email }}
+    </div>
+  </div>
+  <div class="mt-2">
+    <b>Address: </b>
+    <div v-for="address in contact.addresses" :key="address">
+      {{ address.address }}
     </div>
   </div>
   <div class="text-right">

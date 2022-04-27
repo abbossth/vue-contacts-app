@@ -21,12 +21,8 @@ const actions = {
   fetchContacts({ commit }) {
     commit('setContacts', db)
   },
-  createNew({ commit }, name) {
-    const contact = {
-      id: Math.floor(Math.random()*1000000),
-      name: name
-    }
-    db.push(contact)
+  createNew({ commit }, newContact) {
+    db.push(newContact)
     commit('newContact', db)
     router.push('/')
   },

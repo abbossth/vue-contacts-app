@@ -52,7 +52,7 @@ export default {
     ...mapGetters(['allContacts']),
     filteredContacts: function() {
       return this.allContacts.filter((contact) => {
-        return contact.name.toLowerCase().match(this.searched)
+        return contact.name.match(this.searched)
       })
     }
   },

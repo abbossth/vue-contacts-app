@@ -2,19 +2,22 @@
   {
     "id": 511733,
     "name": "John",
-    "phone": ["+998912345678"],
-    "email": ["john@mail.com"]
+    "phones": [{"phone": "+998912345678"}],
+    "emails": [{"email": "john@mail.com"}],
+    "addresses": [{"address": "19 Zuhro Str., Khiva"}, {"address": "Pekin, China"}]
   },
   {
-    "id": 539261,
+    "id": 124598,
     "name": "Yasmin",
-    "phone": ["+998912345678","+998912340000"],
-    "email": ["yasmin@gmail.ru"]
+    "phones": [{"phone": "+998954645465"}, {"phone": "+796154645000"}],
+    "emails": [{"email": "yasmin@mail.com"}],
+    "addresses": [{"address": "12A-House Olmazor, Tashkent"}]
   },
   {
     "id": 154681,
     "name": "Abbos",
-    "phone": ["+998912345678"],
-    "email": ["abbos@mail.uz", "bossko@gmail.com"]
+    "phones": [{"phone": "+998912345678"}],
+    "emails": [{"email": "abbos@mail.uz"}, {"email": "bossko@gmail.com"}],
+    "addresses": [{"address": "New York, USA"}]
   }
 ]

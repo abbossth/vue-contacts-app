@@ -3,13 +3,71 @@
     <div class="form-group">
       <label for="name">Имя</label>
       <input
-      v-model="name" 
+      v-model="newContact.name" 
       type="text" class="form-control"
       id="name" placeholder="Фарход Азизов">
     </div>
-    <button type="submit" class="btn btn-primary" @click="creating()">Создать</button>
+    <div class="form-group">
+      <label for="phoneInput">Тел</label>
+      <div class="d-flex align-items-center" v-for="(input,index) in newContact.phones" :key="`phone`+ index">
+        <input
+          v-model="input.phone"
+          type="tel" class="form-control mt-2"
+          id="phoneInput" placeholder="+998917234567">
+        <a v-if="index!=0"
+          class="fas fa-minus text-danger mx-1"
+          @click="deleteField(index, newContact.phones)">
+        </a>
+      </div>
+      <button
+        @click="addField(this.newContact.phones)" 
+        class="btn btn-light mt-1"
+        type="button">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+    <div class="form-group">
+      <label for="emailInput">Email</label>
+      <div class="d-flex align-items-center" v-for="(input,index) in newContact.emails" :key="`email`+ index">
+        <input
+          v-model="input.email" 
+          type="email" class="form-control mt-2"
+          id="emailInput" 
+          placeholder="farkhod@gmail.com">
+        <a v-if="index!=0"
+          class="fas fa-minus text-danger mx-1"
+          @click="deleteField(index, newContact.emails)">
+        </a>
+      </div>
+      <button
+        @click="addField(this.newContact.emails)" 
+        class="btn btn-light mt-1"
+        type="button">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+    <div class="form-group">
+      <label for="addressInput">Address</label>
+      <div class="d-flex align-items-center" v-for="(input,index) in newContact.addresses" :key="`address`+ index">
+        <input
+          v-model="input.address" 
+          type="text" class="form-control mt-2"
+          id="addressInput" 
+          placeholder="e.g 35V 45-House Olmazor Tashkent">
+        <a v-if="index!=0"
+          class="fas fa-minus text-danger mx-1"
+          @click="deleteField(index, newContact.addresses)">
+        </a>
+      </div>
+      <button
+        @click="addField(this.newContact.addresses)" 
+        class="btn btn-light mt-1"
+        type="button">
+        <i class="fas fa-plus"></i>
+      </button>
+    </div>
+    <button type="submit" class="btn btn-primary">Создать</button>
   </form>
-  <p v-if="isCreated" class="alert alert-success my-3 w-50 mx-auto">Контакт создан успешно!</p>
 </template>
 
 <script>
@@ -18,19 +76,26 @@ export default {
   name: 'CreateContact',
   data() {
     return {
-      name: '',
-      isCreated: false
+      newContact: {
+        id: Math.floor(Math.random()*1000000),
+        name: '',
+        phones: [{phone: ''}],
+        emails: [{email: ''}],
+        addresses: [{address: ''}],
+      }
     }
   },
   methods: {
     ...mapActions(['createNew']),
     onSubmit(e) {
       e.preventDefault()
-      this.createNew(this.name)
+      this.createNew(this.newContact)
     },
-    creating() {
-      this.isCreated = !this.isCreated
-      setTimeout(() => this.isCreated = !this.isCreated, 3000)
+    addField(arr) {
+      arr.push({})
+    },
+    deleteField(index, arr) {
+      arr.splice(index, 1)
     }
   }
 }
